@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<main class="container text-center" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card card-body">
+                <h1 class="text-danger">Venta Fallida</h1>
+                <p class="lead">Lo sentimos, ha ocurrido un problema con tu compra.</p>
+                <p class="text-muted">Por favor, inténtalo de nuevo o contacta a soporte.</p>
+                <a href="{% url 'tienda' %}" class="btn btn-primary">Volver a la tienda</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

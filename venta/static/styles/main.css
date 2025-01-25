@@ -1,0 +1,105 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #4BCBD1;
+}
+
+.navbar {
+    background-color: #B53A3A;
+    
+    font-size: 25px;
+}
+
+.navbar a img{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 0;
+}
+
+.navbar ul li{
+    list-style: none;
+    padding-right: 20px;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    color: #DDCA4C;
+}
+
+.poke-card-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.poke-card{
+    position: relative;
+    height: fit-content;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #E7E3DE;
+    border: 1px solid black;
+   
+}
+
+.poke-card::before{
+    content: '';
+    background: radial-gradient(black 33%, transparent 33%);
+    background-size: 3px 3px;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+    
+}
+
+.img-container{
+    position: relative;
+    width: 180px;
+    margin: 10px auto;
+}
+
+.poke-stats div{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.poke-types div{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px dashed black;
+}
+
+.poke-img{
+    width: 180px;
+    border-radius: 50%;
+    background: radial-gradient(#4BCBD1 33%, #DDCA4C 33%);
+    background-size: 5px 5px;
+}
+
+.formulario {
+    text-align: center;
+}
+
+.pokemon-card-container {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="row" style="margin-top: 90px;">
+    <div class="col-8">
+        <div class="row poke-card-container">
+            {% for pokemon in pokemons %}
+            <div class="poke-card">
+                <div class="img-container">
+                    <img class="poke-img" src="{{ pokemon.sprite }}" alt="{{ pokemon.name }}">
+                </div>
+                <h2>{{ pokemon.name }}</h2>
+                <p>Nº Pokedex: {{ pokemon.number }}</p>
+                <div class="poke-types">
+                    <p>Tipo: {{ pokemon.element }}</p>
+                </div>
+                <div class="poke-stats">
+                    <p>HP: {{ pokemon.hp }}</p>
+                    <p>Ataque: {{ pokemon.attack }}</p>
+                    <p>Defensa: {{ pokemon.defense }}</p>
+                    <p>Velocidad: {{ pokemon.speed }}</p>
+                    <p>Precio: {{ pokemon.price }}</p>
+                    <a href="{% url 'add' pokemon.number %}" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'tienda' %}?offset={{ offset|add:pokemon_count }}" class="btn btn-primary">Cargar Más</a>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="col-4" style="margin-top: 20px; ">
+        {% include "carrito.html" %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<main class="container text-center" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card card-body">
+                <h1 class="text-success">Venta Exitosa</h1>
+                <p class="lead">¡Tu compra se ha realizado con éxito!</p>
+                <a href="{% url 'tienda' %}" class="btn btn-primary">Volver a la tienda</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

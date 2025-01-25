@@ -1,0 +1,48 @@
+{% extends "layouts/base.html" %} 
+
+{% block content %}
+<div class="container text-center align-items-center" style="margin-top: 90px; height: 100vh; ">
+    <h1 style="font-size: 40px;">Pokemon</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+            {{ form }}
+        
+        <input class="btn btn-success" type="submit" value="Buscar">
+    </form>
+
+    {% if data %}
+    <div class="row" style="margin-top: 20px; ">
+        <div class="col-8">
+            <div class="pokemon-card-container">
+                <div class="poke-card">
+                    <div class="img-container">
+                        <img class="poke-img" src="{{ data.sprite }}" alt="{{ data.name }}">
+                    </div>
+                    <h2>{{ data.name }}</h2>
+                    <p>Nº Pokedex: {{ data.number }}</p>
+                    <div class="poke-types">
+                        <p>Tipo: {{ data.element }}</p>
+                    </div>
+                    <div class="poke-stats">
+                        <p>HP: {{ data.hp }}</p>
+                        <p>Ataque: {{ data.attack }}</p>
+                        <p>Defensa: {{ data.defense }}</p>
+                        <p>Velocidad: {{ data.speed }}</p>
+                        <p>Precio: {{ data.price }}</p>
+                        <a href="{% url 'add' data.number %}" class="btn btn-primary">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="col-4" style="margin-top: 20px;"> 
+            {% include "carrito.html" %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
